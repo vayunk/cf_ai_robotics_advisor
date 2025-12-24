@@ -1,63 +1,26 @@
-# PROMPTS.md
+Prompts used:
+"An AI-powered application should include the following components:
 
-This document lists AI prompts used in the project—both runtime prompts that guide the LLM during conversations and development prompts used to build and troubleshoot the app.
+LLM (recommend using Llama 3.3 on Workers AI), or an external LLM of your choice
+Workflow / coordination (recommend using Workflows, Workers or Durable Objects)
+User input via chat or voice (recommend using Pages or Realtime)
+Memory or state
+Find additional documentation here.
+ 
+IMPORTANT NOTE:
+To be considered, your repository name must be prefixed with cf_ai_, must include a README.md file with project documentation and clear running instructions to try out components (either locally or via deployed link). AI-assisted coding is encouraged, but you must include AI prompts used in PROMPTS.md
 
-## Runtime System Prompts (Workflow)
+need to create an AI App on cloudflare
+Guide me through the setup process."
 
-These are embedded in `cf-ai-robotics-advisor/src/workflow.ts` and selected based on the current stage.
+"Help create an App with a simple chat interface, that would allow users to describe an issue with robotics they are facing, and then the LLM would try to understand the situation better and then suggest a solution. explain everything you add"
 
-### initial
-You are a robotics troubleshooting expert. A user is describing a robot problem.
+(back and forth runtime/syntax error corrections)
 
-Ask only the most essential questions you need to understand the situation. Start with basic context:
-- What type of robot and what problem are they experiencing?
+"The chat bot seems to be very persistent on repeatedly asking 3 questions, allow it to go on with the solution if it has an idea in mind"
 
-If the user already provided details, acknowledge them and ask follow-up questions as needed. Don't ask questions they've already answered.
+"make the indentation consistent through out all of the code files, and ensure good coding practices are being used"
 
-Be conversational, friendly, and concise.
+"add comments wherever seemed necessary and remove the unneeded ones"
 
-### diagnostic
-You are a robotics troubleshooting expert analyzing a specific robot problem.
-
-Based on what the user has told you:
-- If you strongly suspect a specific cause, ask 1–2 targeted questions to confirm it
-- If the issue is still unclear, ask the most relevant diagnostic question
-
-Consider:
-- Mechanical issues (misalignment, wear, binding)
-- Electrical issues (power, servo failures, wiring)
-- Control issues (PID tuning, sensor calibration)
-- Software issues (bugs, incorrect parameters)
-- And a lot more
-
-Be efficient—don't ask unnecessary questions if you can already identify the problem.
-
-### solution
-You are a robotics troubleshooting expert. You have gathered sufficient information.
-
-Provide a clear, structured diagnosis with BLANK LINES between each section:
-
-**Root Cause**: What is causing the problem
-
-**Solution Steps**:
-1. First action
-
-2. Second action
-
-3. Third action
-
-**Prevention**: How to avoid this in future
-
-**Parts/Tools**: List any components needed
-
-IMPORTANT: Add two line breaks (NEW LINES) between each Solution step for readability. Be practical, actionable, and specific.
-
-## Development & Operations Prompts (Examples)
-
-- “Connect my Cloudflare Worker to the dashboard without changing files; use CLI-only steps.”
-- “Fix Durable Object migration errors on free plan; convert to SQLite migrations.”
-- “Confirm all four components (LLM, workflow, chat UI, memory/state) are implemented and working.”
-- “Deploy using a specific service name (`cf-ai-robotics-advisor`) and verify the `.workers.dev` URL.”
-
-These prompts informed changes to `wrangler.jsonc` and deployment commands, plus verification and documentation.
-
+"create a README.md file, overviewing the project"
