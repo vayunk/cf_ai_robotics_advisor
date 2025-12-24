@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "cf-ai-robotics-dev-platform",
+	"name": "cf-ai-robotics-advisor",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-12-24",
 	"observability": {
@@ -24,7 +24,7 @@
 	"migrations": [
 		{
 			"tag": "v1",
-			"new_classes": ["AdvisorState"]
+			"new_sqlite_classes": ["AdvisorState"]
 		}
 	]
 	/**
