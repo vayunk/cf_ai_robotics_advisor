@@ -12,26 +12,6 @@ AI-powered Robotics Troubleshooting Advisor built on Cloudflare Workers. It prov
 - Open the deployed Worker: https://cf-ai-robotics-advisor.khare-vayun.workers.dev
 - Type a robot issue; the advisor will ask focused questions, then provide a diagnosis and solution.
 
-## Run Locally
-Prerequisites: Node.js 18+, Cloudflare Wrangler (`npm i -D wrangler` or via npx), a Cloudflare account.
-
-```powershell
-cd c:\Users\Vayun\Desktop\cf_ai_robotics_advisor\cf-ai-robotics-advisor
-npm install
-npx wrangler login
-npx wrangler dev
-```
-
-Local dev prints a preview URL; open it in your browser and use the chat. Tail logs in another terminal with `npx wrangler tail --name cf-ai-robotics-advisor`.
-
-## Deploy
-```powershell
-cd c:\Users\Vayun\Desktop\cf_ai_robotics_advisor\cf-ai-robotics-advisor
-npx wrangler deploy --name cf-ai-robotics-advisor
-```
-
-This uses the configuration in `wrangler.jsonc`, including bindings for Workers AI and Durable Objects (SQLite migrations for free plan).
-
 ## Project Structure
 - `cf-ai-robotics-advisor/src/index.ts`: Worker entry, routes, chat UI, AI calls, DO interactions.
 - `cf-ai-robotics-advisor/src/workflow.ts`: Stage prompts and transition logic.
